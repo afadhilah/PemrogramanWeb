@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi Mahasiswa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #1B1E2A;
+            color: white;
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form name="formPendaftaran" method="post" onsubmit="return validateForm()" novalidate>
+            <div class="form-group">
+                <label>Nama Mahasiswa</label>
+                <input type="text" name="nama" placeholder="Nama lengkap" class="form-control" required maxlength="40"
+                    minlength="3">
+                <small class="form-text text-muted">Nama harus terdiri dari 3-40 karakter.</small>
+            </div>
+            <div class="form-group">
+                <label>NRP</label>
+                <input type="text" name="nrp" placeholder="NRP" class="form-control" required maxlength="10">
+                <small class="form-text text-muted">NRP harus terdiri dari 10 karakter.</small>
+            </div>
+            <div class="form-group">
+                <label>Mata Kuliah</label>
+                <input type="text" name="mataKuliah" placeholder="Mata Kuliah" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Dosen</label>
+                <input type="text" name="dosen" placeholder="Dosen" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var nama = document.forms["formPendaftaran"]["nama"].value;
+            var nrp = document.forms["formPendaftaran"]["nrp"].value;
+
+            if (nama === "" && nrp === "") {
+                window.alert("Nama dan NRP harus diisi.");
+                return false;
+            }
+            if (nama === "") {
+                window.alert("Nama harus diisi.");
+                return false;
+            }
+            if (nrp === "") {
+                window.alert("NRP harus diisi.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
